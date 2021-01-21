@@ -21,13 +21,9 @@ module.exports = {
 			{
 				useTabs: true,
 				trailingComma: "es5", // 多行时，尽可能打印尾随的逗号
-				wrapAttributes: true,
-				sortAttributes: true,
 				bracketSpacing: true,
-				// htmlWhitespaceSensitivity: "ignore",
 			},
 		],
-		"max-len": ["error", { code: 800, ignoreUrls: true }],
 		"vue/html-self-closing": [
 			"error",
 			{
