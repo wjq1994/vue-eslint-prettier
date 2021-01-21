@@ -55,8 +55,8 @@ module.exports = {
 			{
 				useTabs: true,
 				wrapAttributes: true,
-                sortAttributes: true,
-                bracketSpacing: true
+				sortAttributes: true,
+				bracketSpacing: true
 			},
 			{
 				usePrettierrc: true
@@ -95,7 +95,6 @@ module.exports = {
         "prettier": {
             // Prettier option here
             "trailingComma": "es5", // 多行时，尽可能打印尾随的逗号
-            "tabWidth": 4, // 会忽略vetur的tabSize配置
             "useTabs": true, // 是否利用tab替代空格
             "semi": true, // 句尾是否加;
         }
@@ -109,3 +108,7 @@ module.exports = {
 // 一键修复
 npm run lint --fix
 ```
+
+## typescript-eslint
+
+typescript官方推荐 [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)
