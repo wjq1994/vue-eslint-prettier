@@ -112,3 +112,7 @@ npm run lint --fix
 ## typescript-eslint
 
 typescript官方推荐 [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)
+
+## gitHooks + lint-staged
+
+git提交代码之前，校验代码
