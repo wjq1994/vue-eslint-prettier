@@ -69,7 +69,9 @@ module.exports = {
   // 保存时按照哪个规则进行格式化
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  // 启用/禁用 TypeScript 验证。控制的是vscode默认的校验
+  "typescript.validate.enable": true
 }
 ```
 
