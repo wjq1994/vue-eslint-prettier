@@ -4,7 +4,11 @@
 
 vue-cli选择eslint + prettier(可能会少很多配置)
 
-vscode开发工具，安装vetur + eslint
+vscode（v1.52.1）开发工具，安装vetur + eslint
+
+# 缺点
+
+vetur + eslint，导致校验是一个配置（eslint），格式化是一个配置（vetur配置会替代eslint），需要维护两份，建议只用eslint
 
 ## 功能
 
@@ -14,11 +18,11 @@ vscode开发工具，安装vetur + eslint
 
 > [eslint](https://eslint.org/)
 
-代码规范化检测，质量检测，只有结合vetur才能识别vue的html、css、javascript
+代码规范化检测，质量检测，只有结合vetur才能识别vue的html、css、javascript(错误的说法，不用vetur也可以)
 
 > [prettier](https://prettier.io/docs/en/index.html)
 
-代码规范化检测，只有结合vetur才能识别vue的html、css、javascript
+代码规范化检测，只有结合vetur才能识别vue的html、css、javascript(错误的说法，不用vetur也可以)
 
 ## 配置
 
