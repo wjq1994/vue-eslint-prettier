@@ -2,14 +2,15 @@
 
 ## 环境
 
-vscode（v1.52.1） + eslint（不安装vetur，全由eslint控制）
+vscode（v1.52.1） + eslint（安装vetur，全由eslint控制）
+
+vetur主要vue高亮和vue里ts可以点击跳转
 
 ## 配置
 
 校验和格式化全由.eslintrc.js文件控制。
 
 > .eslintrc.js 
-
 ```javascript
 module.exports = {
 	root: true,
@@ -56,7 +57,6 @@ module.exports = {
 ```
 
 > settings.json
-
 ```json
 {
   "editor.tabSize": 2,
@@ -68,16 +68,32 @@ module.exports = {
   "editor.formatOnPaste": true, // 在粘贴时自动格式化
   // 保存时按照哪个规则进行格式化
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "addMissingImports": true
   },
-  // 启用/禁用 TypeScript 验证。控制的是vscode默认的校验
-  "typescript.validate.enable": true
+  "eslint.validate": [
+    "vue",
+    "typescript"
+  ],
+  "files.exclude": {
+    "**/*.js": {
+      "when": "$(basename).ts"
+    },
+    "**/**.js": {
+      "when": "$(basename).tsx"
+    },
+    "**/*.js.map": true
+	},
+	// 启用/禁用 TypeScript 验证。控制的是vscode默认的校验
+	"typescript.validate.enable": true,
+	// 禁用vetur配置
+  "vetur.format.enable": false
 }
 ```
 
 ## CLI
 
-```
+```json
 // 一键修复
 npm run lint --fix
 ```
@@ -89,3 +105,36 @@ typescript官方推荐 [typescript-eslint](https://github.com/typescript-eslint/
 ## gitHooks + lint-staged
 
 git提交代码之前，校验代码
+
+> 正确用法
+
+```json
+
+"gitHooks": {
+	"pre-commit": "lint-staged --config ./lint-staged.config.js"
+}
+```
+```javascript
+// lint-staged.config.js
+// 即校验代码规范和格式化，又校验tsc
+module.exports = {
+  "*.{js,vue}": () => "npm run lint",
+  "**/*.ts?(x)": () => ["npm run lint", "tsc -p tsconfig.json --noEmit"],
+};
+```
+> 错误用法
+
+```json
+"gitHooks": {
+	"pre-commit": "lint-staged"
+},
+"lint-staged": {
+	"*.{js,vue}": [
+		"npm run lint"
+	],
+	"*.ts?(x)": [
+		// 放在package.json里，不起作用？？？，要放到配置文件
+		"tsc -p tsconfig.json --noEmit"
+	]
+},
+```

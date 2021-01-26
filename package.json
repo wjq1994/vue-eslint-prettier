@@ -3,12 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"gitHooks": {
-		"pre-commit": "lint-staged"
-	},
-	"lint-staged": {
-		"*.{js,ts,vue}": [
-			"npm run lint"
-		]
+		"pre-commit": "lint-staged --config ./lint-staged.config.js"
 	},
 	"scripts": {
 		"serve": "vue-cli-service serve",
